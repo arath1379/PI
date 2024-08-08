@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progreso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">INICIO</a>
+        <a href="{{ url_for('actividades') }}">ACTIVIDADES</a>
+        <a href="{{ url_for('progreso') }}">PROGRESO</a>
+        <a href="{{ url_for('configuracion') }}">CONFIGURACIÓN</a>
+    </div>
+    <div class="container">
+        <div class="section center">
+            <h2>Progreso</h2>
+            <ul class="options-list">
+                <li><a href="{{ url_for('estadisticas') }}"><i class="fas fa-chart-bar"></i> Ver Estadísticas</a></li>
+                <li><a href="{{ url_for('logros') }}"><i class="fas fa-trophy"></i> Logros</a></li>
+                <li><a href="{{ url_for('metas') }}"><i class="fas fa-bullseye"></i> Metas</a></li>
+                <li><a href="{{ url_for('actividades_completadas') }}"><i class="fas fa-check-circle"></i> Actividades Completadas</a></li>
+                <li><a href="{{ url_for('ranking') }}"><i class="fas fa-list-ol"></i> Ranking</a></li>
+            </ul>
+            <div class="image-container small-margin">
+                <img src="{{ url_for('static', filename='images/mascota-tortuga2.png') }}" alt="Mascota Tortuga">
+            </div>
+            <a href="{{ url_for('index') }}" class="back-link">Volver al Menú Principal</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .ranking-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .ranking-item h2 {
+            margin-top: 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ranking</h1>
+        {% for item in ranking %}
+        <div class="ranking-item">
+            <h2>{{ item.posicion }}. {{ item.nickname }}</h2>
+            <p><strong>Puntos:</strong> {{ item.puntos }}</p>
+        </div>
+        {% endfor %}
+        <a href="{{ url_for('index') }}" class="back-link">Volver al Inicio</a>
+    </div>
+</body>
+</html>

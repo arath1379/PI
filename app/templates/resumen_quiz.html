@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resumen del Quiz</title>
+    <link rel="stylesheet" href="/static/css/style_quiz.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-gauge@3.0.1/dist/chartjs-gauge.min.js"></script>
+</head>
+<body>
+    <div id="contenedor-resumen">
+        <h2>Resumen del Quiz</h2>
+        <p id="puntos-totales">Puntuación total: {{ puntos_totales }}</p>
+        <canvas id="medidor-puntuacion"></canvas>
+        <h3>Preguntas incorrectas:</h3>
+        <ul id="respuestas-incorrectas">
+            {% for pregunta in respuestas_incorrectas %}
+            <li>
+                <b>{{ pregunta['question'] }}</b><br>
+                Respuesta correcta: <span style="color: green;">{{ pregunta['answers'][pregunta['correct']] }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        <img id="imagen-resultado" alt="Resultado" src="/static/images/{{ 'bueno.png' if puntos_totales >= (puntos_posibles_totales / 2) else 'malo.png' }}">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const puntosTotales = JSON.parse('{{ puntos_totales | tojson | safe }}');
+            const puntosPosiblesTotales = JSON.parse('{{ puntos_posibles_totales | tojson | safe }}');
+            console.log("Puntos Totales:", puntosTotales); // Imprime los puntos totales para depuración
+            console.log("Puntos Posibles Totales:", puntosPosiblesTotales); // Imprime los puntos posibles totales para depuración
+
+            const ctx = document.getElementById('medidor-puntuacion').getContext('2d');
+            new Chart(ctx, {
+                type: 'gauge',
+                data: {
+                    labels: ['0', `${puntosPosiblesTotales / 2}`, `${puntosPosiblesTotales}`],
+                    datasets: [{
+                        data: [puntosTotales],
+                        value: puntosTotales,
+                        minValue: 0,
+                        backgroundColor: ['red', 'yellow', 'green'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    needle: {
+                        radiusPercentage: 2,
+                        widthPercentage: 3.2,
+                        lengthPercentage: 80,
+                        color: 'rgba(0, 0, 0, 1)'
+                    },
+                    valueLabel: {
+                        display: true,
+                        formatter: Math.round
+                    },
+                    plugins: {
+                        tooltip: {
+                            enabled: false
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

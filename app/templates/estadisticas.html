@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">INICIO</a>
+        <a href="{{ url_for('actividades') }}">ACTIVIDADES</a>
+        <a href="{{ url_for('progreso') }}">PROGRESO</a>
+        <a href="{{ url_for('configuracion') }}">CONFIGURACIÓN</a>
+    </div>
+    <div class="container">
+        <div class="section center">
+            <h2>Estadísticas de Puntos</h2>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Puntos Obtenidos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stat in stats %}
+                    <tr>
+                        <td>{{ stat.nombre_actividad }}</td>
+                        <td>{{ stat.puntos }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="image-container small-margin">
+                <img src="{{ url_for('static', filename='images/mascota-tortuga.png') }}" alt="Mascota Tortuga">
+            </div>
+            <a href="{{ url_for('index') }}" class="back-link">Volver al Menú Principal</a>
+        </div>
+    </div>
+</body>
+</html>

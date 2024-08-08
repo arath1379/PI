@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimentos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">INICIO</a>
+        <a href="{{ url_for('actividades') }}">ACTIVIDADES</a>
+        <a href="{{ url_for('progreso') }}">PROGRESO</a>
+        <a href="{{ url_for('configuracion') }}">CONFIGURACIÓN</a>
+    </div>
+    <div class="container">
+        <div class="section center">
+            <h2>Experimentos con Materiales Reciclables</h2>
+            <ul class="experimentos-list">
+                <li>
+                    <h3>Manualidad 1: Maceta tortuga</h3>
+                    <p>Reúne los materiales:</p>
+                    <ul>
+                        <li>Una botella de plástico vacía y limpia (preferiblemente de tamaño grande).</li>
+                        <li>Pinturas acrílicas o marcadores para decorar.</li>
+                        <li>Tijeras.</li>
+                        <li>Tierra y una planta pequeña (como una suculenta).</li>
+                    </ul>
+                    <p>Preparación de la botella:</p>
+                    <ul>
+                        <li>Lava bien la botella y asegúrate de que esté completamente seca.</li>
+                        <li>Retira la etiqueta y la tapa.</li>
+                    </ul>
+                    <p>Corte de la botella:</p>
+                    <ul>
+                        <li>Corta la parte inferior de la botella (donde se encuentra la base) para crear la “cáscara” de la tortuga. Esto será la parte donde colocarás la tierra y la planta.</li>
+                        <li>Luego, corta una abertura en la parte superior de la botella para que puedas introducir la planta.</li>
+                    </ul>
+                    <p>Decoración:</p>
+                    <ul>
+                        <li>Ahora viene la parte divertida. Puedes pintar la botella para que se parezca a una tortuga. Pinta o dibuja los detalles de la cabeza, las patas y el caparazón.</li>
+                        <li>Si prefieres, también puedes pegar ojos móviles, piedras pequeñas o cualquier otro elemento decorativo.</li>
+                    </ul>
+                    <p>Plantación:</p>
+                    <ul>
+                        <li>Llena la parte inferior de la botella con tierra.</li>
+                        <li>Coloca la planta en la abertura superior y asegúrate de que esté bien plantada.</li>
+                    </ul>
+                    <p>Toque final:</p>
+                    <ul>
+                        <li>Si deseas, puedes agregar más detalles alrededor de la maceta, como piedras o musgo.</li>
+                    </ul>
+                    <p>¡Listo! Ahora tienes una linda maceta en forma de tortuga hecha con una botella de plástico reciclada.</p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/D_u6mNlHprE" frameborder="0" allowfullscreen></iframe>
+                    <p>Fuente: [YouTube: INNOVANDO IDEAS](https://www.youtube.com/watch?v=D_u6mNlHprE&ab_channel=INNOVANDOIDEAS)</p>
+                </li>
+                <li>
+                    <h3>Experimento 2: Tren de Tubos de Cartón</h3>
+                    <p>Materiales:</p>
+                    <ul>
+                        <li>Tubos de cartón del papel higiénico (¡los que usamos todos los días!)</li>
+                        <li>Tijeras (¡con cuidado, que cortan!)</li>
+                        <li>Pegamento (¡para que todo se pegue bien!)</li>
+                        <li>Lápices de colores, pinturas o marcadores (¡para darle color a nuestro tren!)</li>
+                        <li>Papel de colores, botones, purpurina o cualquier cosa que quieras para decorar (¡a usar la imaginación!)</li>
+                    </ul>
+                    <p>Corte de los tubos:</p>
+                    <ul>
+                        <li>Usa los tubos de cartón para hacer vagones de diferentes tamaños. Un tubo largo será la locomotora y los más cortos serán los vagones. ¡Con cuidado y pide ayuda si lo necesitas!</li>
+                    </ul>
+                    <p>Pintura y decoración:</p>
+                    <ul>
+                        <li>¡Ahora le damos vida a nuestro tren! Pinta los tubos con los colores que más te gusten. Puedes hacer rayas, puntos o dibujar caras divertidas. ¡Añade papel de colores, botones, purpurina o lo que se te ocurra!</li>
+                    </ul>
+                    <p>Unión de los vagones:</p>
+                    <ul>
+                        <li>Con mucho cuidado, pega los tubos uno al lado del otro para formar el tren. Puedes hacer un tren largo o uno corto, ¡como más te guste!</li>
+                    </ul>
+                    <p>Detalles finales:</p>
+                    <ul>
+                        <li>¡Hagamos que nuestro tren sea único! Dibuja ruedas, ventanas y una puerta en la locomotora. Puedes hacer una chimenea con un trozo de cartón y pegarla arriba. ¡Sé creativo!</li>
+                    </ul>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/MH4hV0CmIEU" frameborder="0" allowfullscreen></iframe>
+                    <p>Fuente: [YouTube: Art & Crafts](https://www.youtube.com/watch?v=MH4hV0CmIEU&ab_channel=Art%26Crafts)</p>
+                </li>
+            </ul>
+            <div class="image-container small-margin">
+                <img src="{{ url_for('static', filename='images/mascota-tortuga.png') }}" alt="Mascota Tortuga">
+            </div>
+            <a href="{{ url_for('index') }}" class="back-link">Volver al Menú Principal</a>
+        </div>
+    </div>
+</body>
+</html>

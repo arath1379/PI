@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Interactivo</title>
+    <link rel="stylesheet" href="/static/css/style_quiz.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-gauge@3.0.1/dist/chartjs-gauge.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let indicePreguntaActual = 0;
+            let preguntas = [];
+            let puntosTotales = 0;
+            let respuestasIncorrectas = [];
+            let puntosPosiblesTotales = 0;
+
+            function cargarPreguntas() {
+                fetch('/questions')
+                    .then(response => response.json())
+                    .then(data => {
+                        preguntas = data;
+                        puntosPosiblesTotales = preguntas.reduce((acc, pregunta) => acc + pregunta.points, 0);
+                        cargarPregunta();
+                    })
+                    .catch(error => console.error('Error al cargar las preguntas:', error));
+            }
+
+            function cargarPregunta() {
+                const pregunta = preguntas[indicePreguntaActual];
+                const imagenPregunta = document.getElementById('imagen-pregunta');
+                const textoPregunta = document.getElementById('texto-pregunta');
+                const respuestasDiv = document.getElementById('respuestas');
+
+                imagenPregunta.src = `/static/${pregunta.img}`;
+                textoPregunta.textContent = pregunta.question;
+                respuestasDiv.innerHTML = '';
+                pregunta.answers.forEach((respuesta, indice) => {
+                    const boton = document.createElement('button');
+                    boton.textContent = respuesta;
+                    boton.onclick = () => verificarRespuesta(indice);
+                    respuestasDiv.appendChild(boton);
+                });
+            }
+
+            function verificarRespuesta(seleccionada) {
+                const pregunta = preguntas[indicePreguntaActual];
+                const modalResultado = document.getElementById('modal-resultado');
+                const textoResultado = document.getElementById('texto-resultado');
+
+                if (seleccionada === pregunta.correct) {
+                    textoResultado.textContent = '¡Correcto!';
+                    puntosTotales += pregunta.points;
+                } else {
+                    textoResultado.textContent = `Incorrecto. La respuesta correcta es: ${pregunta.answers[pregunta.correct]}`;
+                    respuestasIncorrectas.push(pregunta);
+                }
+                modalResultado.style.display = 'block';
+            }
+
+            document.getElementById('boton-cerrar-modal').onclick = () => {
+                const modalResultado = document.getElementById('modal-resultado');
+                modalResultado.style.display = 'none';
+                indicePreguntaActual++;
+                if (indicePreguntaActual < preguntas.length) {
+                    cargarPregunta();
+                } else {
+                    enviarResumen();
+                }
+            };
+
+            function enviarResumen() {
+                const datosResumen = {
+                    puntos_totales: puntosTotales,
+                    respuestas_incorrectas: respuestasIncorrectas,
+                    puntos_posibles_totales: puntosPosiblesTotales
+                };
+
+                console.log("Datos a enviar:", datosResumen); // Imprime los datos para depuración
+
+                fetch('/resumen_quiz', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(datosResumen)
+                })
+                .then(response => response.text())
+                .then(html => {
+                    document.open();
+                    document.write(html);
+                    document.close();
+                })
+                .catch(error => console.error('Error al enviar los datos:', error));
+            }
+
+            document.getElementById('boton-iniciar').onclick = () => {
+                document.getElementById('bienvenida').style.display = 'none';
+                document.getElementById('contenedor-quiz').style.display = 'block';
+                cargarPregunta();
+            };
+
+            document.getElementById('boton-salir').onclick = () => {
+                enviarResumen();
+            };
+
+            cargarPreguntas();
+        });
+    </script>
+</head>
+<body>
+    <div id="bienvenida">
+        <h1>Bienvenido al Quiz</h1>
+        <p>Instrucciones: Responde las preguntas para completar el quiz. ¡Buena suerte!</p>
+        <img src="/static/images/quiz.png" alt="Quiz" style="width: 300px; height: auto;">
+        <p>Este quiz cubre temas importantes sobre el medio ambiente y la conservación. ¡Pon a prueba tus conocimientos y aprende más sobre cómo cuidar nuestro planeta!</p>
+        <button id="boton-iniciar" class="boton-centro">Comenzar</button>
+    </div>
+    <div id="contenedor-quiz" style="display: none;">
+        <img id="imagen-pregunta" src="/static/images/bienvenidos.png.png" alt="Pregunta">
+        <p id="texto-pregunta"></p>
+        <div id="respuestas">
+            <!-- Aquí se añadirán los botones de respuesta dinámicamente -->
+        </div>
+        <button id="boton-salir" class="boton-centro">Salir y ver resumen</button>
+    </div>
+    <div id="modal-resultado" class="modal">
+        <div class="contenido-modal">
+            <p id="texto-resultado"></p>
+            <button id="boton-cerrar-modal">Continuar</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturas</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            border: 2px solid #0288d1;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #0288d1;
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #0288d1;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+        .card a:hover {
+            background-color: #0277bd;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #0288d1;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .back-link:hover {
+            color: #0277bd;
+        }
+        .section-title {
+            color: #0288d1;
+            border-bottom: 3px solid #0288d1;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="section-title">Lecturas</h1>
+        {% for lectura in lecturas %}
+        <div class="card">
+            <h2>{{ lectura.title }}</h2>
+            <a href="{{ url_for(lectura.page_url) }}" target="_blank">{{ lectura.page_text }}</a>
+        </div>
+        {% endfor %}
+        <h1 class="section-title">Glosario</h1>
+        <div class="card">
+            <a href="{{ url_for(glosario.page_url) }}" target="_blank">{{ glosario.page_text }}</a>
+        </div>
+        <h1 class="section-title">Referencias</h1>
+        <div class="card">
+            <a href="{{ url_for(referencias.page_url) }}" target="_blank">{{ referencias.page_text }}</a>
+        </div>
+        <a href="{{ url_for('index') }}" class="back-link">Volver al Inicio</a>
+    </div>
+</body>
+</html>

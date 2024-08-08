@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    color: #004d40;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #00796b;
+    padding: 10px 0;
+    border-bottom: 4px solid #00796b;
+}
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-right: 2px solid #00796b;
+}
+.navbar a:last-child {
+    border-right: none;
+}
+.navbar a:hover {
+    background-color: #004d40;
+}
+.container {
+    display: flex;
+    padding: 20px;
+}
+.section {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: #b2ebf2;
+    border: 2px solid #00796b;
+}
+.section h2 {
+    background-color: #00796b;
+    color: #fff;
+    padding: 10px;
+    margin: -20px -20px 20px -20px;
+    text-align: center;
+}
+.section p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.section i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+.options-list {
+    list-style-type: none;
+    padding: 0;
+}
+.options-list li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border: 1px solid #00796b;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.options-list li a {
+    text-decoration: none;
+    color: #00796b;
+}
+.options-list li a:hover {
+    color: #004d40;
+}
+.btn-link {
+    display: inline-block;
+    background-color: #00796b;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn-link:hover {
+    background-color: #004d40;
+}
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+.image-container img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 10px;
+}
+.center {
+    text-align: center;
+}
+.small-margin {
+    margin-top: -10px;
+}
+.flashes {
+    list-style: none;
+    padding: 0;
+}
+.flashes li {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.flashes .success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.flashes .danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.login-container, .register-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #b2ebf2;
+    border: 2px solid #00796b;
+    border-radius: 10px;
+    text-align: center;
+}
+.login-container h2, .register-container h2 {
+    color: #00796b;
+}
+.login-container form, .register-container form {
+    display: flex;
+    flex-direction: column;
+}
+.login-container input, .register-container input, .register-container select {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #00796b;
+    border-radius: 5px;
+}
+.login-container button, .register-container button {
+    padding: 10px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-container button:hover, .register-container button:hover {
+    background-color: #004d40;
+}
+.login-container a, .register-container a {
+    color: #00796b;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.login-container a:hover, .register-container a:hover {
+    color: #004d40;
+}
+/*  esto es para la pagina de estadisticas  D: */
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.stats-table th, .stats-table td {
+    border: 1px solid #00796b;
+    padding: 10px;
+    text-align: left;
+}
+
+.stats-table th {
+    background-color: #00796b;
+    color: white;
+}
+
+.stats-table td {
+    background-color: #e0f7fa;
+}
+
+
+/*  esto es para la pagina de experimentos  D: */
+
+.experimentos-list {
+    list-style-type: none;
+    padding: 0;
+}
+.experimentos-list li {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border: 1px solid #00796b;
+    border-radius: 5px;
+}
+.experimentos-list h3 {
+    margin-top: 0;
+}
+.experimentos-list a {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #00796b;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.experimentos-list a:hover {
+    background-color: #004d40;
+}

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimenta y Cuida el Planeta</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #4caf50;
+        }
+        .card p {
+            color: #616161;
+        }
+        .card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .card ul li {
+            margin-bottom: 10px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .back-link:hover {
+            color: #388e3c;
+        }
+        .section-title {
+            color: #4caf50;
+            border-bottom: 3px solid #4caf50;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            background-color: #4caf50;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="section-title">Experimenta y Cuida el Planeta</h1>
+        
+        <div class="card">
+            <div class="icon">🌍</div>
+            <h2>Reciclaje Creativo</h2>
+            <p>Aprende a reutilizar materiales para crear objetos nuevos. Con este experimento, descubrirás cómo darle una nueva vida a objetos que ya no usas, como botellas de plástico, latas y más.</p>
+            <h3>Materiales:</h3>
+            <ul>
+                <li>Botellas de plástico</li>
+                <li>Latas vacías</li>
+                <li>Pinturas y pinceles</li>
+                <li>Tijeras</li>
+                <li>Pegamento</li>
+            </ul>
+            <h3>Pasos:</h3>
+            <ul>
+                <li>1. Limpia y seca los materiales reciclados.</li>
+                <li>2. Pinta y decora las botellas y latas como desees.</li>
+                <li>3. Usa las tijeras y el pegamento para ensamblar nuevas creaciones.</li>
+                <li>4. Deja secar y ¡disfruta tus nuevos objetos reciclados!</li>
+            </ul>
+            <iframe src="https://www.youtube.com/embed/some-video-url"></iframe>
+        </div>
+        
+        <div class="card">
+            <div class="icon">🌍</div>
+            <h2>Huerto en Casa</h2>
+            <p>Descubre cómo plantar y cuidar tus propias verduras en casa. Este experimento te enseñará los principios básicos de la jardinería y cómo puedes contribuir a un ambiente más saludable cultivando tus propios alimentos.</p>
+            <h3>Materiales:</h3>
+            <ul>
+                <li>Macetas o recipientes</li>
+                <li>Tierra fértil</li>
+                <li>Semillas de verduras</li>
+                <li>Agua</li>
+                <li>Palitas de jardinería</li>
+            </ul>
+            <h3>Pasos:</h3>
+            <ul>
+                <li>1. Llena las macetas con tierra fértil.</li>
+                <li>2. Planta las semillas según las instrucciones del paquete.</li>
+                <li>3. Riega las semillas regularmente.</li>
+                <li>4. Coloca las macetas en un lugar con suficiente luz solar.</li>
+                <li>5. Observa y cuida el crecimiento de tus plantas.</li>
+            </ul>
+            <iframe src="https://www.youtube.com/embed/another-video-url"></iframe>
+        </div>
+        
+        <div class="card">
+            <div class="icon">🌍</div>
+            <h2>Filtro de Agua Casero</h2>
+            <p>Construye un filtro de agua simple usando materiales reciclados. Con este experimento, aprenderás sobre la importancia del agua limpia y cómo puedes crear un filtro eficaz con cosas que tienes en casa.</p>
+            <h3>Materiales:</h3>
+            <ul>
+                <li>Botella de plástico</li>
+                <li>Algodón</li>
+                <li>Arena</li>
+                <li>Grava</li>
+                <li>Carbón activado</li>
+                <li>Agua sucia</li>
+            </ul>
+            <h3>Pasos:</h3>
+            <ul>
+                <li>1. Corta la botella de plástico por la mitad.</li>
+                <li>2. Coloca algodón en el fondo de la mitad superior de la botella.</li>
+                <li>3. Añade una capa de carbón activado sobre el algodón.</li>
+                <li>4. Luego, agrega una capa de arena y una capa de grava.</li>
+                <li>5. Vierte el agua sucia a través del filtro y observa cómo se limpia.</li>
+            </ul>
+            <iframe src="https://www.youtube.com/embed/yet-another-video-url"></iframe>
+        </div>
+        
+        <a href="{{ url_for('index') }}" class="back-link">Volver al Inicio</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">INICIO</a>
+        <a href="{{ url_for('actividades') }}">ACTIVIDADES</a>
+        <a href="{{ url_for('progreso') }}">PROGRESO</a>
+        <a href="{{ url_for('configuracion') }}">CONFIGURACIÓN</a>
+    </div>
+    <div class="container">
+        <div class="section center">
+            <h2>Logros</h2>
+            <ul class="logros-list">
+                {% for logro in logros %}
+                <li>
+                    <h3>{{ logro.nombre }}</h3>
+                    <p>{{ logro.descripcion }}</p>
+                    {% if logro.completado %}
+                        <p class="completado">Completado</p>
+                    {% else %}
+                        <p class="pendiente">Pendiente</p>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="image-container small-margin">
+                <img src="{{ url_for('static', filename='images/mascota-tortuga.png') }}" alt="Mascota Tortuga">
+            </div>
+            <a href="{{ url_for('index') }}" class="back-link">Volver al Menú Principal</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Ecológicos</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #4caf50;
+        }
+        .card p {
+            color: #616161;
+        }
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .card a:hover {
+            background-color: #388e3c;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .back-link:hover {
+            color: #388e3c;
+        }
+        .section-title {
+            color: #4caf50;
+            border-bottom: 3px solid #4caf50;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            background-color: #4caf50;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="section-title">Juegos Ecológicos</h1>
+        
+        <div class="card">
+            <div class="icon">🌱</div>
+            <h2>Reciclaje Divertido</h2>
+            <p>Aprende a reciclar correctamente con este juego interactivo. Arrastra y suelta los residuos en el contenedor correcto.</p>
+            <a href="https://www.cokitos.com/separar-la-basura-y-reciclar/" target="_blank">Jugar Ahora</a>
+        </div>
+        
+        <div class="card">
+            <div class="icon">🌍</div>
+            <h2>Huerto Virtual</h2>
+            <p>Crea y cuida tu propio huerto virtual. Aprende sobre el ciclo de crecimiento de las plantas y cómo mantener un jardín saludable.</p>
+            <a href="https://www.cokitos.com/reciclaje-interactivo/" target="_blank">Jugar Ahora</a>
+        </div>
+        
+        <div class="card">
+            <div class="icon">💧</div>
+            <h2>Salva el Océano</h2>
+            <p>Ayuda a limpiar el océano recogiendo basura y evitando la contaminación. Conviértete en un héroe ecológico.</p>
+            <a href="https://www.cokitos.com/limpiar-el-mar/" target="_blank">Jugar Ahora</a>
+        </div>
+        
+        <a href="{{ url_for('index') }}" class="back-link">Volver al Inicio</a>
+    </div>
+</body>
+</html>

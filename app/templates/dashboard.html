@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">INICIO</a>
+        <a href="{{ url_for('actividades') }}">ACTIVIDADES</a>
+        <a href="{{ url_for('progreso') }}">PROGRESO</a>
+        <a href="{{ url_for('configuracion') }}">CONFIGURACIÓN</a>
+        <a href="{{ url_for('logout') }}">CERRAR SESIÓN</a>
+    </div>
+    <div class="container">
+        <div class="section center">
+            <h2>Bienvenido, {{ session['username'] }}</h2>
+            <p>Este es tu panel de control. Aquí puedes gestionar tus actividades y ver tu progreso.</p>
+            <div class="card">
+                <h3>Actividades</h3>
+                <p>Explora y completa diversas actividades para ganar puntos.</p>
+                <a href="{{ url_for('actividades') }}" class="btn-link">Ir a Actividades</a>
+            </div>
+            <div class="card">
+                <h3>Progreso</h3>
+                <p>Consulta tu progreso y estadísticas.</p>
+                <a href="{{ url_for('progreso') }}" class="btn-link">Ver Progreso</a>
+            </div>
+            <div class="card">
+                <h3>Configuración</h3>
+                <p>Gestiona tu cuenta y preferencias.</p>
+                <a href="{{ url_for('configuracion') }}" class="btn-link">Configuración</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">INICIO</a>
+        <a href="{{ url_for('actividades') }}">ACTIVIDADES</a>
+        <a href="{{ url_for('progreso') }}">PROGRESO</a>
+        <a href="{{ url_for('configuracion') }}">CONFIGURACIÓN</a>
+    </div>
+    <div class="container">
+        <div class="section center">
+            <h2>Metas</h2>
+            <ul class="metas-list">
+                {% for meta in metas %}
+                <li>
+                    <h3>{{ meta.nombre }}</h3>
+                    <p>{{ meta.descripcion }}</p>
+                    <form method="post" action="{{ url_for('completar_meta', meta_id=meta.id) }}">
+                        <button type="submit" class="btn-link">Marcar como Completado</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="image-container small-margin">
+                <img src="{{ url_for('static', filename='images/mascota-tortuga.png') }}" alt="Mascota Tortuga">
+            </div>
+            <a href="{{ url_for('index') }}" class="back-link">Volver al Menú Principal</a>
+        </div>
+    </div>
+</body>
+</html>
